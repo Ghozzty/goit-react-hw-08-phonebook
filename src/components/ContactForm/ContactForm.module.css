@@ -1,0 +1,39 @@
+.form {
+  background-color: rgb(112, 136, 188);
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.input {
+  min-height: 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 0 15px;
+
+  background-color: antiquewhite;
+
+  border: 3px solid rgb(237, 120, 120);
+
+  transition: border 250ms linear;
+}
+.input:hover,
+.input:focus {
+  outline: none;
+  border: 3px solid rgb(0, 255, 42);
+  box-shadow: 5px 5px 5px 0px rgba(34, 60, 80, 0.34) inset;
+}
+
+.submitBtn {
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: burlywood;
+  transition: box-shadow 250ms linear;
+}
+.submitBtn:hover,
+.submitBtn:focus {
+  box-shadow: 0px 8px 8px rgb(0 0 0 / 30%);
+}

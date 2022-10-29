@@ -1,0 +1,25 @@
+.findForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  margin-bottom: 15px;
+}
+
+.input {
+  min-height: 30px;
+  border-radius: 5px;
+  padding: 0px 15px;
+
+  background-color: antiquewhite;
+
+  border: 3px solid rgb(237, 120, 120);
+
+  transition: border 250ms linear;
+}
+.input:hover,
+.input:focus {
+  outline: none;
+  border: 3px solid rgb(0, 98, 255);
+}

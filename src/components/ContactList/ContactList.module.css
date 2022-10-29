@@ -1,0 +1,33 @@
+.list {
+}
+.item {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  transition: background-color 250ms linear;
+}
+.item:hover,
+.item:focus,
+.item:active {
+  background-color: hotpink;
+}
+
+.delBtn {
+  margin-left: 45px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: 1px solid hotpink;
+
+  transition: box-shadow 250ms linear;
+}
+
+.delBtn:hover,
+.delBtn:focus {
+  box-shadow: 0px 1px 5px 0px rgba(34, 60, 80, 0.34) inset;
+}
+
+.number {
+  margin-left: auto;
+}
