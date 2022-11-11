@@ -71,7 +71,7 @@ export class App extends Component {
     const { filter } = this.state;
     return (
       <div className={css.appStyle}>
-        <h1 className={css.title}>Phonebook</h1>
+        <h1 className={css.title}>Phonebook04</h1>
 
         <ContactForm onSubmit={this.addContact} />
 
