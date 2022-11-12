@@ -24,7 +24,7 @@ export const App = () => {
     } else setDidMount(true);
   }, [contacts, didMount]);
 
-  const addContact = ({ name, number }) => {
+  const addContact = (name, number) => {
     const includeName = name => {
       return contacts.find(
         elem => elem.name.toLocaleLowerCase() === name.toLocaleLowerCase()
