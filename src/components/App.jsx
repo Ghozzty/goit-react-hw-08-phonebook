@@ -11,13 +11,10 @@ export const App = () => {
     JSON.parse(localStorage.getItem('contacts') ?? [])
   );
   const [filter, setFilter] = useState('');
-  const [didMount, setDidMount] = useState(false);
 
   useEffect(() => {
-    if (didMount) {
-      localStorage.setItem('contacts', JSON.stringify(contacts));
-    } else setDidMount(true);
-  }, [contacts, didMount]);
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const addContact = (name, number) => {
     const includeName = name => {
@@ -69,4 +66,3 @@ export const App = () => {
     </div>
   );
 };
-
