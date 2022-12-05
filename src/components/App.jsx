@@ -54,6 +54,7 @@ export const App = () => {
 
   return (
     <div className={css.appStyle}>
+      <h1>This is my HW_6</h1>
       <h1 className={css.title}>Phonebook</h1>
 
       <ContactForm addCont={addContact} />
