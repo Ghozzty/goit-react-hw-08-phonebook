@@ -1,22 +1,27 @@
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { useState, useEffect } from 'react';
+//
 import { nanoid } from 'nanoid';
 //
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getContacts,
+  addContact,
+  deleteCont,
+  setFilter,
+  getFilter,
+} from 'redux/contactsSlice';
+//
 import css from './App.module.css';
+import PropTypes from 'prop-types';
 
 export const App = () => {
-  const [contacts, setContacts] = useState(() =>
-    JSON.parse(localStorage.getItem('contacts') ?? [])
-  );
-  const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
-
-  const addContact = (name, number) => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
+  const currentFilter = useSelector(getFilter);
+  //
+  const addCont = (name, number) => {
     const includeName = name => {
       return contacts.find(
         elem => elem.name.toLocaleLowerCase() === name.toLocaleLowerCase()
@@ -28,42 +33,52 @@ export const App = () => {
       name,
       number,
     };
+
     if (includeName(contact.name)) {
       return alert(`${contact.name} is already in contacts`);
     }
-    setContacts(prevState => [contact, ...prevState]);
+    dispatch(addContact(contact));
   };
 
   const deleteContact = e => {
     const id = e.currentTarget.id;
-
-    setContacts(prevState => [...prevState.filter(el => el.id !== id)]);
+    dispatch(deleteCont(id));
   };
 
   const changeFilter = e => {
-    setFilter(e.target.value);
+    dispatch(setFilter(e.target.value));
   };
 
   const filtredContacts = () => {
-    const toLowCaseFilter = filter.toLocaleLowerCase();
+    const toLowCaseFilter = currentFilter.toLocaleLowerCase();
 
     return contacts.filter(cont =>
       cont.name.toLowerCase().includes(toLowCaseFilter)
     );
   };
-
+  //
   return (
     <div className={css.appStyle}>
-      <h1>This is my HW_6</h1>
       <h1 className={css.title}>Phonebook</h1>
 
-      <ContactForm addCont={addContact} />
+      <ContactForm addCont={addCont} />
 
       <h2 className={css.title}>Contacts</h2>
 
-      <Filter value={filter} changeFilter={changeFilter} />
+      <Filter value={currentFilter} changeFilter={changeFilter} />
 
       <ContactList contacts={filtredContacts()} deleteCont={deleteContact} />
     </div>
   );
+};
+
+App.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  currentFilter: PropTypes.string,
 };
