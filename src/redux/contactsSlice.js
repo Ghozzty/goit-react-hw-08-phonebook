@@ -18,6 +18,7 @@ const contSlice = createSlice({
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['filter'],
 };
 
 export const contReducer = persistReducer(persistConfig, contSlice.reducer);
