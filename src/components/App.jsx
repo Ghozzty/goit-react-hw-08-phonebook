@@ -10,7 +10,7 @@ export const App = () => {
 
       <ContactForm />
 
-      <h2 className={css.title}>Contacts my_hw_07</h2>
+      <h2 className={css.title}>Contacts</h2>
 
       <Filter />
 

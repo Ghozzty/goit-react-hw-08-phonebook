@@ -5,32 +5,35 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 //
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts, addContact } from 'redux/contactsSlice';
+import { getContacts } from 'redux/contactsSlice';
+//
+import { addContact } from 'redux/operations';
 
 export const ContactForm = () => {
   const [nameCont, setNameCont] = useState('');
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  // const { items, isLoading, error } = useSelector(getContacts);
 
-  const addCont = (name, number) => {
-    const includeName = name => {
-      return contacts.find(
-        elem => elem.name.toLocaleLowerCase() === name.toLocaleLowerCase()
-      );
-    };
+  const addCurrentCont = (name, number) => {
+    // const includeName = name => {
+    //   return items.find(
+    //     elem => elem.name.toLocaleLowerCase() === name.toLocaleLowerCase()
+    //   );
+    // };
 
     const contact = {
       id: nanoid(10),
       name,
       number,
     };
-
-    if (includeName(contact.name)) {
-      return alert(`${contact.name} is already in contacts`);
-    }
+    // console.log(contact);
     dispatch(addContact(contact));
+    // if (includeName(contact.name)) {
+    //   return alert(`${contact.name} is already in contacts`);
+    // }
+    // dispatch(addContact(contact));
   };
 
   const handleChange = e => {
@@ -47,7 +50,7 @@ export const ContactForm = () => {
   const onSubmitEvt = e => {
     e.preventDefault();
 
-    addCont(nameCont, number);
+    addCurrentCont(nameCont, number);
 
     setNumber('');
     setNameCont('');

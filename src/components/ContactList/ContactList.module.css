@@ -5,13 +5,14 @@
   display: flex;
   align-items: center;
   padding: 5px;
+  border-radius: 5px;
 
   transition: background-color 250ms linear;
 }
 .item:hover,
 .item:focus,
 .item:active {
-  background-color: hotpink;
+  background-color: rgb(252, 181, 217);
 }
 
 .delBtn {
