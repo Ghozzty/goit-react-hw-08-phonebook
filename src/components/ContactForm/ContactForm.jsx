@@ -2,10 +2,8 @@ import { useState } from 'react';
 //
 import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
-import { nanoid } from 'nanoid';
 //
-import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/contactsSlice';
+import { useDispatch } from 'react-redux';
 //
 import { addContact } from 'redux/operations';
 
@@ -14,27 +12,6 @@ export const ContactForm = () => {
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-  // const { items, isLoading, error } = useSelector(getContacts);
-
-  const addCurrentCont = (name, number) => {
-    // const includeName = name => {
-    //   return items.find(
-    //     elem => elem.name.toLocaleLowerCase() === name.toLocaleLowerCase()
-    //   );
-    // };
-
-    const contact = {
-      id: nanoid(10),
-      name,
-      number,
-    };
-    // console.log(contact);
-    dispatch(addContact(contact));
-    // if (includeName(contact.name)) {
-    //   return alert(`${contact.name} is already in contacts`);
-    // }
-    // dispatch(addContact(contact));
-  };
 
   const handleChange = e => {
     const event = e.target;
@@ -50,7 +27,7 @@ export const ContactForm = () => {
   const onSubmitEvt = e => {
     e.preventDefault();
 
-    addCurrentCont(nameCont, number);
+    dispatch(addContact({ name: nameCont, phone: number }));
 
     setNumber('');
     setNameCont('');

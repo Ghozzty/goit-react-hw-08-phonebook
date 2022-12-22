@@ -1,7 +1,5 @@
-.list {
-}
 .item {
-  width: 400px;
+  width: 600px;
   display: flex;
   align-items: center;
   padding: 5px;
@@ -31,4 +29,5 @@
 
 .number {
   margin-left: auto;
+  text-align: end;
 }
