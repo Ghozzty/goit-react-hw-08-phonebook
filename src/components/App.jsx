@@ -6,7 +6,7 @@ import css from './App.module.css';
 export const App = () => {
   return (
     <div className={css.appStyle}>
-      <h1 className={css.title}>Phonebook</h1>
+      <h1 className={css.title}>Phonebook~HW_8</h1>
 
       <ContactForm />
 
