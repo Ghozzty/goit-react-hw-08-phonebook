@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 //
 import { useDispatch } from 'react-redux';
 //
-import { addContact } from 'redux/operations';
+import { addContact } from 'redux/contacts/operations';
 
 export const ContactForm = () => {
   const [nameCont, setNameCont] = useState('');

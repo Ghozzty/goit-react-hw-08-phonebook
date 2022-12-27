@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 //
+import { persistReducer } from 'redux-persist';
+//
 import { fetchContacts, addContact, deleteContact } from './operations';
+//
+import storage from 'redux-persist/lib/storage';
 
 const contSlice = createSlice({
   name: 'book',
@@ -52,8 +56,19 @@ const contSlice = createSlice({
     },
   },
 });
+//
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist: ['filter'],
+};
 
-export const contReducer = contSlice.reducer;
+export const contReducer = persistReducer(persistConfig, contSlice.reducer);
+
+// export const { addContact, deleteCont } = contSlice.actions;
+//
+
+// export const contReducer = contSlice.reducer;
 
 // selectors
 

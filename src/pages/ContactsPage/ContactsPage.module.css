@@ -1,0 +1,14 @@
+.appStyle {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  font-size: 20px;
+  background-color: antiquewhite;
+  color: black;
+}
+.title {
+  color: deeppink;
+}

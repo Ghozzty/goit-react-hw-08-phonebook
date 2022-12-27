@@ -1,0 +1,18 @@
+/* .navTEMP {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* .logRegSec {
+  margin-left: 50%;
+} */
+
+.linkList {
+  display: flex;
+  justify-content: space-between;
+}
+/* .linkList:not:last-child {
+  margin-left: 50px;
+} */
+.listItem {
+  margin-left: 50px;
+}
