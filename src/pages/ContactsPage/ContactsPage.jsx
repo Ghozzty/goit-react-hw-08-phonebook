@@ -6,14 +6,10 @@ import css from './ContactsPage.module.css';
 const ContactsPage = () => {
   return (
     <div className={css.appStyle}>
-      <h1 className={css.title}>Phonebook~HW_8</h1>
-
+      <h1 className={css.title}>Phonebook</h1>
       <ContactForm />
-
       <h2 className={css.title}>Contacts</h2>
-
       <Filter />
-
       <ContactList />
     </div>
   );

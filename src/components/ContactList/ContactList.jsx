@@ -29,11 +29,11 @@ export const ContactList = () => {
 
   return (
     <ul className={css.list}>
-      {isLoading && <b>Loading tasks...</b>}
+      {isLoading && <b>Loading contacts...</b>}
       {error && <b>{error}</b>}
       {filtredContacts().map(cont => (
         <li key={cont.id} className={css.item}>
-          {cont.name}:<span className={css.number}>{cont.phone}</span>
+          {cont.name}:<span className={css.number}>{cont.number}</span>
           <button id={cont.id} onClick={delContactFn} className={css.delBtn}>
             Delete
           </button>

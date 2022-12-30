@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 //
-import { persistReducer } from 'redux-persist';
+import {
+  fetchContacts,
+  addContact,
+  deleteContact,
+  updateContact,
+} from './operations';
 //
-import { fetchContacts, addContact, deleteContact } from './operations';
-//
-import storage from 'redux-persist/lib/storage';
 
 const contSlice = createSlice({
   name: 'book',
@@ -54,21 +56,27 @@ const contSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    // update
+    [updateContact.pending](state) {
+      state.isLoading = true;
+    },
+    [updateContact.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const index = state.items.findIndex(el => el.id === action.payload.id);
+      state.items[index] = action.payload;
+    },
+    [updateContact.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
   },
 });
 //
-const persistConfig = {
-  key: 'root',
-  storage,
-  blacklist: ['filter'],
-};
 
-export const contReducer = persistReducer(persistConfig, contSlice.reducer);
-
-// export const { addContact, deleteCont } = contSlice.actions;
 //
 
-// export const contReducer = contSlice.reducer;
+export const contReducer = contSlice.reducer;
 
 // selectors
 

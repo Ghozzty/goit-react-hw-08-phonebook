@@ -1,18 +1,16 @@
 import { useState } from 'react';
-//
 import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
-//
-import { useDispatch } from 'react-redux';
-//
-import { addContact } from 'redux/contacts/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from 'redux/contacts/contactsSlice';
+import { addContact, updateContact } from 'redux/contacts/operations';
 
 export const ContactForm = () => {
   const [nameCont, setNameCont] = useState('');
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-
+  const { items } = useSelector(getContacts);
   const handleChange = e => {
     const event = e.target;
 
@@ -27,7 +25,36 @@ export const ContactForm = () => {
   const onSubmitEvt = e => {
     e.preventDefault();
 
-    dispatch(addContact({ name: nameCont, phone: number }));
+    const inContactsName = items.find(el => el.name === nameCont);
+    const inContactsPhone = items.find(el => el.number === number);
+    // check : already in contacts
+    if (inContactsName) {
+      dispatch(
+        updateContact({
+          id: inContactsName.id,
+          name: nameCont,
+          number: number,
+        })
+      );
+      setNumber('');
+      setNameCont('');
+      return;
+    }
+    if (inContactsPhone) {
+      dispatch(
+        updateContact({
+          id: inContactsPhone.id,
+          name: nameCont,
+          number: number,
+        })
+      );
+      setNumber('');
+      setNameCont('');
+      return;
+    } else {
+      // else add
+      dispatch(addContact({ name: nameCont, number: number }));
+    }
 
     setNumber('');
     setNameCont('');

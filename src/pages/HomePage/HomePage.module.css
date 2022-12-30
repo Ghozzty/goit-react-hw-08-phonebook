@@ -1,0 +1,11 @@
+.wrapper {
+  font-size: 18px;
+  text-align: center;
+  background-color: antiquewhite;
+  height: calc(100vh - 52px);
+  padding-top: 30px;
+}
+.img {
+  border: 1px solid black;
+  border-radius: 4px;
+}

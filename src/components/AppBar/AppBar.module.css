@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 50px;
-  border-bottom: 2px solid orangered;
-  margin-bottom: 30px;
+  height: 50px;
+  background-color: rgb(255, 181, 166);
+  border-bottom: 2px solid rgb(0, 0, 0);
 }
