@@ -15,5 +15,35 @@
   margin-bottom: 16px;
 }
 .input {
+  margin-top: 10px;
+  padding: 5px 15px;
+  border-radius: 4px;
+  border: 1px solid grey;
   width: 200px;
+
+  transition: border 200ms linear;
+}
+
+.input:hover,
+.input:focus,
+.input:active {
+  border: 2px solid #ec8794;
+  box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+  outline: none;
+}
+
+.button {
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  background-color: rgb(255, 181, 166);
+  box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+  transition: box-shadow 250ms linear;
+
+  font-weight: 700;
+  color: #2a363b;
+}
+.button:hover,
+.button:focus {
+  box-shadow: 0px 5px 5px rgb(0 0 0 / 30%);
 }

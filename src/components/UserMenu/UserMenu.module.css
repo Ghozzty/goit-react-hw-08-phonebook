@@ -6,4 +6,24 @@
 
 .username {
   font-weight: 700;
+  margin: 0;
+}
+.name {
+  color: #ab4ae8;
+}
+
+.button {
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  background-color: rgb(216, 222, 135);
+  box-shadow: 0px 2px 2px rgb(0 0 0 / 30%);
+  transition: box-shadow 250ms linear;
+
+  font-weight: 700;
+  color: #2a363b;
+}
+.button:hover,
+.button:focus {
+  box-shadow: 0px 5px 5px rgb(0 0 0 / 30%);
 }

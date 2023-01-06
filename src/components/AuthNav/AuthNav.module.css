@@ -4,8 +4,9 @@
   padding: 12px;
   font-weight: 700;
   color: #2a363b;
+  transition: color 250ms linear;
 }
 
-.link.active {
+.link:hover {
   color: #e84a5f;
 }

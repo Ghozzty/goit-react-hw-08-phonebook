@@ -32,7 +32,9 @@ export const RegisterForm = () => {
         Password
         <input type="password" name="password" className={css.input} />
       </label>
-      <button type="submit">Register</button>
+      <button type="submit" className={css.button}>
+        Register
+      </button>
     </form>
   );
 };

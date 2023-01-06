@@ -10,10 +10,16 @@ export const Navigation = () => {
     <nav className={css.nav}>
       <ul className={css.linkList}>
         <li className={css.listItem}>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/" className={css.link}>
+            Home
+          </NavLink>
         </li>
         <li className={css.listItem}>
-          {isLoggedIn && <NavLink to="/contacts">Contacts</NavLink>}
+          {isLoggedIn && (
+            <NavLink to="/contacts" className={css.link}>
+              Contacts
+            </NavLink>
+          )}
         </li>
       </ul>
     </nav>
